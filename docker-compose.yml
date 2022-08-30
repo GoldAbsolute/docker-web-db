@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  #Web Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    #restart: unless-stopped
+    #tty: true
+    ports:
+      - "80:80"
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      app_login: root
+      app_password: db_pass
+#      app_ip: db
+      app_ip: 127.0.0.1
+      app_port: 3306
+      app_dbname: my-db
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: db
+    restart: unless-stopped
+    #tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: my-db
+      MYSQL_ROOT_PASSWORD: db_pass
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
