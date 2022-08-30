@@ -15,20 +15,33 @@ func check(err error) {
 	}
 }
 
-var app_login = os.Getenv("app_login")
-var app_password = os.Getenv("app_password")
-var app_ip = os.Getenv("app_ip")
-var app_port = os.Getenv("app_port")
-var app_dbname = os.Getenv("app_dbname")
+func IndexPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/index.html"))
+	_ = tmpl.ExecuteTemplate(w, "index", nil)
+}
+func AboutPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/about.html"))
+	_ = tmpl.ExecuteTemplate(w, "index", nil)
+}
+func MenuPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/menu.html"))
+	_ = tmpl.ExecuteTemplate(w, "index", nil)
+}
 
-var db_path = fmt.Sprintf("%s:%s@(%s:%s)/%s?parseTime=true", app_login, app_password, app_ip, app_port, app_dbname)
-
+// <<<--- TESTING DB --->>>
 func testRoute(w http.ResponseWriter, r *http.Request) {
-	db, _ := sql.Open("mysql", db_path)
 
+	var app_login = os.Getenv("app_login")
+	var app_password = os.Getenv("app_password")
+	var app_ip = os.Getenv("app_ip")
+	var app_port = os.Getenv("app_port")
+	var app_dbname = os.Getenv("app_dbname")
+
+	var db_path = fmt.Sprintf("%s:%s@(%s:%s)/%s?parseTime=true", app_login, app_password, app_ip, app_port, app_dbname)
+
+	db, _ := sql.Open("mysql", db_path)
 	//db, err := sql.Open("mysql", "root:db_pass@(127.0.0.1:3306)/my-db?parseTime=true")
 	//check(err)
-
 	//_ = db
 	_ = db.Ping()
 	data := "1"
