@@ -67,10 +67,18 @@ func RouterUpdate() *mux.Router {
 	BlogSubRouter.HandleFunc("", BlogPage)
 	BlogSubRouter.HandleFunc("/", BlogPage)
 	// contact
-	ContactSubRouter := MainRouter.PathPrefix("/contract").Subrouter()
+	ContactSubRouter := MainRouter.PathPrefix("/contact").Subrouter()
 	ContactSubRouter.HandleFunc("", ContactPage)
 	ContactSubRouter.HandleFunc("/", ContactPage)
-
+	// elements
+	ElementsSubRouter := MainRouter.PathPrefix("/elements").Subrouter()
+	ElementsSubRouter.HandleFunc("", ElementsPage)
+	ElementsSubRouter.HandleFunc("/", ElementsPage)
+	// single-blog
+	Single_blogSubRouter := MainRouter.PathPrefix("/single_blog").Subrouter()
+	Single_blogSubRouter.HandleFunc("", Single_blogPage)
+	Single_blogSubRouter.HandleFunc("/", Single_blogPage)
+	// return main router
 	return MainRouter
 }
 

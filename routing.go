@@ -16,31 +16,31 @@ func check(err error) {
 }
 
 func IndexPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/index.html"))
+	tmpl := template.Must(template.ParseFiles("pages/index.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "index", nil)
 }
 func AboutPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/about.html"))
+	tmpl := template.Must(template.ParseFiles("pages/about.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "about", nil)
 }
 func MenuPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/menu.html"))
+	tmpl := template.Must(template.ParseFiles("pages/menu.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "menu", nil)
 }
 func BlogPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/blog.html"))
+	tmpl := template.Must(template.ParseFiles("pages/blog.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "blog", nil)
 }
 func ContactPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/contact.html"))
+	tmpl := template.Must(template.ParseFiles("pages/contact.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "contact", nil)
 }
 func ElementsPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/elements.html"))
+	tmpl := template.Must(template.ParseFiles("pages/elements.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "elements", nil)
 }
 func Single_blogPage(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("pages/single-blog.html"))
+	tmpl := template.Must(template.ParseFiles("pages/single-blog.html", "parts/header.html"))
 	_ = tmpl.ExecuteTemplate(w, "single-blog", nil)
 }
 
