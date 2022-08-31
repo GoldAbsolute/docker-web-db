@@ -21,11 +21,27 @@ func IndexPage(w http.ResponseWriter, r *http.Request) {
 }
 func AboutPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("pages/about.html"))
-	_ = tmpl.ExecuteTemplate(w, "index", nil)
+	_ = tmpl.ExecuteTemplate(w, "about", nil)
 }
 func MenuPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("pages/menu.html"))
-	_ = tmpl.ExecuteTemplate(w, "index", nil)
+	_ = tmpl.ExecuteTemplate(w, "menu", nil)
+}
+func BlogPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/blog.html"))
+	_ = tmpl.ExecuteTemplate(w, "blog", nil)
+}
+func ContactPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/contact.html"))
+	_ = tmpl.ExecuteTemplate(w, "contact", nil)
+}
+func ElementsPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/elements.html"))
+	_ = tmpl.ExecuteTemplate(w, "elements", nil)
+}
+func Single_blogPage(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("pages/single-blog.html"))
+	_ = tmpl.ExecuteTemplate(w, "single-blog", nil)
 }
 
 // <<<--- TESTING DB --->>>
