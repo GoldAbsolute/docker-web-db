@@ -17,7 +17,9 @@ RUN go get github.com/go-sql-driver/mysql
 RUN go get github.com/gorilla/mux
 # docker-go-app - название бинарника
 RUN go build -o /docker-go-app
+# env variables
+ENV PORT 80
 # Контернер, выставляемые порты
-EXPOSE 80
+EXPOSE $PORT
 # Указывает входную точку, мб, в данном случае путь до собираемого бинарника
 CMD [ "/docker-go-app" ]
