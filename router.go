@@ -47,6 +47,7 @@ func RouterUpdate() *mux.Router {
 	MainRouter.Handle("/static/images/products/{file}", http.StripPrefix("/static/images/products", http.FileServer(http.Dir("static/images/products"))))
 	// >> static files end
 
+	// test
 	//testSubRouter := MainRouter.PathPrefix("/test").Subrouter()
 	//testSubRouter.HandleFunc("", testRoute)
 	//testSubRouter.HandleFunc("/", testRoute)

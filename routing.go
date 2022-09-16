@@ -17,7 +17,8 @@ func check(err error) {
 
 func IndexPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("pages/index.html", "parts/header.html"))
-	_ = tmpl.ExecuteTemplate(w, "index", nil)
+	Info := IndexInfo()
+	_ = tmpl.ExecuteTemplate(w, "index", Info)
 }
 func AboutPage(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("pages/about.html", "parts/header.html"))

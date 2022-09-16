@@ -179,6 +179,20 @@
             <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="row">
+                {{ range .FoodList }}
+                    <div class="col-xl-6 col-md-6 col-lg-6">
+                        <div class="single_delicious d-flex align-items-center">
+                            <div class="thumb">
+                                <img src="{{ .ImagePath }}" alt="">
+                            </div>
+                            <div class="info">
+                                <h3>#{{ .Number }}. {{ .Title }}</h3>
+                                <p>{{ .Description }}</p>
+                                <span>${{ .Price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
